@@ -141,20 +141,16 @@
 
 | Tag | Value |
 |-----|-------|
-| Title | Research — RealDataTalks |
-| Meta description | Live real estate data and research from RealDataLab — RealDataTalks. |
-| Canonical | None |
-| OG tags | None |
-| Twitter card | None |
-| JSON-LD | None |
-| H1 | None (iframe-only page) |
+| Title | Real Estate Market Research — Live Data & Analytics · RealDataTalks |
+| Meta description | Live real estate market data, interactive dashboards and research from RealDataLab — powered by RealDataTalks. |
+| Canonical | https://realdatatalks.com/research.html |
+| OG tags | Full set including image |
+| Twitter card | Full set including image |
+| JSON-LD | WebPage |
+| H1 | None (iframe-only page — acceptable for embed wrapper) |
 | Sitemap priority | 0.7 / monthly |
 
-**Issues (critical):**
-- Missing OG tags, Twitter card, canonical link
-- Missing GTM / GA4 tracking
-- No JSON-LD structured data
-- No H1 — page is an iframe wrapper to realdatalab.github.io
+**Status:** Fixed (2026-04-26). GTM/GA4, OG, Twitter, canonical, JSON-LD added.
 
 ---
 
@@ -163,17 +159,16 @@
 | Tag | Value |
 |-----|-------|
 | Title | Page not found — RealDataTalks |
-| Meta description | None |
-| Canonical | None |
-| OG tags | None |
-| Twitter card | None |
-| JSON-LD | None |
+| Meta description | None (not needed for error pages) |
+| Canonical | None (not needed for error pages) |
+| OG tags | None (not needed for error pages) |
+| Twitter card | None (not needed for error pages) |
+| JSON-LD | None (not needed for error pages) |
+| Robots | noindex |
 | H1 | 404 / Page not found |
 | Sitemap | Not listed (correct) |
 
-**Issues:**
-- Missing `<meta name="robots" content="noindex">` — should prevent indexing
-- Missing GTM / GA4 tracking (loses 404 analytics data)
+**Status:** Fixed (2026-04-26). GTM/GA4 tracking and noindex robots tag added.
 
 ---
 
@@ -189,27 +184,27 @@
 
 ## Issues & Recommendations
 
-### Critical
+### Critical — all resolved
+
+| # | Page | Issue | Status |
+|---|------|-------|--------|
+| 1 | research.html | Missing OG, Twitter, canonical, GTM/GA4, JSON-LD | Fixed 2026-04-26 |
+| 2 | 404.html | Missing `noindex` robots tag | Fixed 2026-04-26 |
+| 3 | 404.html | Missing GTM/GA4 | Fixed 2026-04-26 |
+
+### Medium — resolved
+
+| # | Page | Issue | Status |
+|---|------|-------|--------|
+| 4 | index.html | Missing `twitter:image` | Already present (was added before audit) |
+| 5 | index.html | No JSON-LD | Already present — Organization + WebSite + WebPage graph |
+| 6 | All pages | No Organization schema | Present on index.html (home page carries the canonical Organization schema) |
+
+### Low — deferred
 
 | # | Page | Issue | Action |
 |---|------|-------|--------|
-| 1 | research.html | Missing OG, Twitter, canonical, GTM/GA4, JSON-LD, H1 | Add full SEO head section and tracking |
-| 2 | 404.html | Missing `noindex` robots tag | Add `<meta name="robots" content="noindex">` |
-| 3 | 404.html | Missing GTM/GA4 | Add tracking to capture 404 hit data |
-
-### Medium
-
-| # | Page | Issue | Action |
-|---|------|-------|--------|
-| 4 | index.html | Missing `twitter:image` | Add `<meta property="twitter:image" content="https://realdatatalks.com/assets/og-image.jpg">` |
-| 5 | index.html | No JSON-LD | Add WebPage schema (other pages have it) |
-| 6 | All pages | No Organization schema | Add a dedicated Organization JSON-LD block (name, logo, url, contactPoint, sameAs social links) |
 | 7 | All pages | No BreadcrumbList schema | Consider adding for better SERP navigation display |
-
-### Low
-
-| # | Page | Issue | Action |
-|---|------|-------|--------|
 | 8 | All pages | SVG icons lack alt/aria-label in some places | Decorative SVGs should have `aria-hidden="true"` |
 | 9 | blog.html | No Article/BlogPosting schema | Add when actual blog posts are published |
 
@@ -232,5 +227,5 @@ https://realdatatalks.com/contact.html  0.6   yearly
 
 ## Tracking
 
-- **GTM container:** GTM-538VHG6H (script + noscript on all pages except research.html, 404.html)
-- **GA4 property:** G-2E348VSQ5G (gtag.js on all pages except research.html, 404.html)
+- **GTM container:** GTM-538VHG6H (script + noscript on all pages)
+- **GA4 property:** G-2E348VSQ5G (gtag.js on all pages)
