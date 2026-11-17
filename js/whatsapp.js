@@ -1,11 +1,11 @@
-// Single source of truth for the WhatsApp number and pre-filled message.
-// To change the number site-wide, edit WHATSAPP_NUMBER below — no HTML edits needed.
+// Applies the number/message from js/whatsapp-config.js to every wa.me link.
+// To change the number site-wide, edit js/whatsapp-config.js — nothing else.
 (function () {
-  var WHATSAPP_NUMBER = '34674788027';
-  var WHATSAPP_MESSAGE = 'Hi, I would like to ask for consultation';
+  if (!window.WHATSAPP_NUMBER) return;
 
   var href =
-    'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
+    'https://wa.me/' + window.WHATSAPP_NUMBER +
+    '?text=' + encodeURIComponent(window.WHATSAPP_MESSAGE || '');
 
   document.querySelectorAll('a[href*="wa.me/"]').forEach(function (link) {
     link.setAttribute('href', href);
